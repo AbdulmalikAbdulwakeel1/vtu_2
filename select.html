@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Information Form</title>
+</head>
+<body>
+
+<form id="carForm">
+    <label for="carType">Select Car Type:</label>
+    <select id="carType" onchange="showCarNameInput()">
+        <option value="">Select Car Type</option>
+        <option value="toyota">Toyota</option>
+        <option value="lexus">Lexus</option>
+        <!-- Add more options as needed -->
+    </select>
+
+    <div id="carNameInput" style="display: none;">
+        <label for="carName">Car Name:</label>
+        <input type="text" id="carName" name="carName">
+    </div>
+                                                        
+    <div id="plateNumberInput" style="display: none;">
+        <label for="plateNumber">Plate Number:</label>
+        <input type="text" id="plateNumber" name="plateNumber">
+    </div>
+
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    function showCarNameInput() {
+        var carTypeSelect = document.getElementById("carType");
+        var carNameInput = document.getElementById("carNameInput");
+        var plateNumberInput = document.getElementById("plateNumberInput");
+
+        carNameInput.style.display = carTypeSelect.value !== "" ? "block" : "none";
+        plateNumberInput.style.display = "none"; // Reset plateNumberInput visibility
+
+        // Optionally, you can reset the values of carName and plateNumber fields here
+    }
+</script>
+
+</body>
+</html>
